@@ -20,14 +20,12 @@ pipeline {
                
             }
         }
-        stage('Code Analysis') {
-            
-            steps {
-                    withSonarQubeEnv(installationName: 'sonar') {
-                                  sh 'mvn -e clean package org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
-
-                    
-                }
+        stage('SonarQube analysis') {
+    def scannerHome = tool 'sonar'; // must match the name of an actual scanner installation directory on your Jenkins build agent
+    withSonarQubeEnv('sonar') { // If you have configured more than one global server connection, you can specify its name as configured in Jenkins
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
             }
         }
     }
