@@ -34,7 +34,7 @@ pipeline {
                             -Dsonar.projectName=transactions \
                             -Dsonar.projectVersion=1.0 \
                             -Dsonar.java.binaries=target \
-                            -Dsonar.sources =."
+                            -Dsonar.sources=."
                             
 
         }
