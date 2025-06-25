@@ -33,7 +33,9 @@ pipeline {
                             -Dsonar.projectKey=transactions \
                             -Dsonar.projectName=transactions \
                             -Dsonar.projectVersion=1.0 \
-                            -Dsonar.sources=target"
+                            -Dsonar.sources =. \
+                            -Dsonar.java.binaries=target"
+
         }
       }
     }
