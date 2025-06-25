@@ -20,10 +20,20 @@ pipeline {
                
             }
         }
-        stage('Deliver') {
+        stage('Code Analysis') {
+            environment {
+                scannerHome = tool 'sonar'
+            }
             steps {
-                echo 'Deliver....'
-               
+                script {
+                    withSonarQubeEnv('sonar') {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=<project-key> \
+                            -Dsonar.projectName=<project-name> \
+                            -Dsonar.projectVersion=<project-version> \
+                            -Dsonar.sources=<project-path>"
+                    }
+                }
             }
         }
     }
