@@ -21,18 +21,13 @@ pipeline {
             }
         }
         stage('Code Analysis') {
-            environment {
-                scannerHome = tool 'sonar'
-            }
+            
             steps {
-                script {
-                    withSonarQubeEnv('sonar') {
+                    withSonarQubeEnv(installationName: 'sonar') {
                         sh "${scannerHome}/bin/sonar-scanner \
-                            -Dsonar.projectKey=<project-key> \
-                            -Dsonar.projectName=<project-name> \
-                            -Dsonar.projectVersion=<project-version> \
-                            -Dsonar.sources=<project-path>"
-                    }
+                                  sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.11.0.3922:sonar'
+
+                    
                 }
             }
         }
