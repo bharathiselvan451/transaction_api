@@ -57,7 +57,8 @@ pipeline {
 
               sh " mvn clean package "
               sh " docker build -t bharathiselvanrajendran/transactions ."
-              sh " docker push bharathiselvanrajendran/transactions ."
+              sh " docker build -t bharathiselvanrajendran/transactions:latest"
+              sh " docker push bharathiselvanrajendran/transactions:latest"
 
           
           }
