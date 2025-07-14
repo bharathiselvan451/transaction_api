@@ -56,7 +56,9 @@ pipeline {
           steps{
 
               sh " mvn clean package "
-              sh " docker build -t bharathiselvan/transactions ."
+              sh " docker build -t bharathiselvanrajendran/transactions ."
+              sh " docker push bharathiselvanrajendran/transactions ."
+
           
           }
             
