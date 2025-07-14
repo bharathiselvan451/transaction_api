@@ -51,6 +51,16 @@ pipeline {
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
       }
     }
+        stage(' Build docker '){
+
+          steps{
+
+              sh " mvn clean package "
+              sh " docker build -t bharathiselvan/Transactions ."
+          
+          }
+            
+        }
   }
             }
         
