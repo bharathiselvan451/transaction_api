@@ -1,2 +1,6 @@
-This practise application is build using spring boot then used to develop a security pipline that ecompasses
-SCA(software composition analysis)
+This practice application is built using Spring Boot and then used to develop a security pipeline that encompasses
+Static code analysis(using SonarQube)
+SCA(software composition analysis using Dependency-check)
+Then it is packaged into a Docker container
+
+(! Check the Jenkinsfile for the pipeline.
